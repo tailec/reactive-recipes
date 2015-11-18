@@ -1,0 +1,369 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		44B5909552D0C7B40806B8BF /* Pods_reactive_recipe_1.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 08C703CE04A97B20AEAE2572 /* Pods_reactive_recipe_1.framework */; };
+		5399B1401BFBBC4C008C2159 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5399B13F1BFBBC4C008C2159 /* AppDelegate.swift */; };
+		5399B1421BFBBC4C008C2159 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5399B1411BFBBC4C008C2159 /* ViewController.swift */; };
+		5399B1451BFBBC4C008C2159 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5399B1431BFBBC4C008C2159 /* Main.storyboard */; };
+		5399B1471BFBBC4C008C2159 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5399B1461BFBBC4C008C2159 /* Assets.xcassets */; };
+		5399B14A1BFBBC4C008C2159 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 5399B1481BFBBC4C008C2159 /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		08C703CE04A97B20AEAE2572 /* Pods_reactive_recipe_1.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_reactive_recipe_1.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		5399B13C1BFBBC4C008C2159 /* reactive-recipe-1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "reactive-recipe-1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		5399B13F1BFBBC4C008C2159 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		5399B1411BFBBC4C008C2159 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		5399B1441BFBBC4C008C2159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		5399B1461BFBBC4C008C2159 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		5399B1491BFBBC4C008C2159 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		5399B14B1BFBBC4C008C2159 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6DD86F7FC41EFFB80D4B8612 /* Pods-reactive-recipe-1.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactive-recipe-1.debug.xcconfig"; path = "Pods/Target Support Files/Pods-reactive-recipe-1/Pods-reactive-recipe-1.debug.xcconfig"; sourceTree = "<group>"; };
+		BC103FD2FFF0970073743F82 /* Pods-reactive-recipe-1.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-reactive-recipe-1.release.xcconfig"; path = "Pods/Target Support Files/Pods-reactive-recipe-1/Pods-reactive-recipe-1.release.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5399B1391BFBBC4C008C2159 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				44B5909552D0C7B40806B8BF /* Pods_reactive_recipe_1.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		15195CC16C43A6EFD134EEFC /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				08C703CE04A97B20AEAE2572 /* Pods_reactive_recipe_1.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		5399B1331BFBBC4C008C2159 = {
+			isa = PBXGroup;
+			children = (
+				5399B13E1BFBBC4C008C2159 /* reactive-recipe-1 */,
+				5399B13D1BFBBC4C008C2159 /* Products */,
+				A0D5B40387A1B2ECED0B251E /* Pods */,
+				15195CC16C43A6EFD134EEFC /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		5399B13D1BFBBC4C008C2159 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5399B13C1BFBBC4C008C2159 /* reactive-recipe-1.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5399B13E1BFBBC4C008C2159 /* reactive-recipe-1 */ = {
+			isa = PBXGroup;
+			children = (
+				5399B13F1BFBBC4C008C2159 /* AppDelegate.swift */,
+				5399B1411BFBBC4C008C2159 /* ViewController.swift */,
+				5399B1431BFBBC4C008C2159 /* Main.storyboard */,
+				5399B1461BFBBC4C008C2159 /* Assets.xcassets */,
+				5399B1481BFBBC4C008C2159 /* LaunchScreen.storyboard */,
+				5399B14B1BFBBC4C008C2159 /* Info.plist */,
+			);
+			path = "reactive-recipe-1";
+			sourceTree = "<group>";
+		};
+		A0D5B40387A1B2ECED0B251E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6DD86F7FC41EFFB80D4B8612 /* Pods-reactive-recipe-1.debug.xcconfig */,
+				BC103FD2FFF0970073743F82 /* Pods-reactive-recipe-1.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5399B13B1BFBBC4C008C2159 /* reactive-recipe-1 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5399B14E1BFBBC4C008C2159 /* Build configuration list for PBXNativeTarget "reactive-recipe-1" */;
+			buildPhases = (
+				728C3CE4F1725DA0F6FA60AC /* Check Pods Manifest.lock */,
+				5399B1381BFBBC4C008C2159 /* Sources */,
+				5399B1391BFBBC4C008C2159 /* Frameworks */,
+				5399B13A1BFBBC4C008C2159 /* Resources */,
+				000D36AE018565D98A44F8C4 /* Embed Pods Frameworks */,
+				45AE32384A538ABB6D503666 /* Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "reactive-recipe-1";
+			productName = "reactive-recipe-1";
+			productReference = 5399B13C1BFBBC4C008C2159 /* reactive-recipe-1.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		5399B1341BFBBC4C008C2159 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0710;
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = "Pawel Krawiec";
+				TargetAttributes = {
+					5399B13B1BFBBC4C008C2159 = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
+				};
+			};
+			buildConfigurationList = 5399B1371BFBBC4C008C2159 /* Build configuration list for PBXProject "reactive-recipe-1" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 5399B1331BFBBC4C008C2159;
+			productRefGroup = 5399B13D1BFBBC4C008C2159 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5399B13B1BFBBC4C008C2159 /* reactive-recipe-1 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		5399B13A1BFBBC4C008C2159 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5399B14A1BFBBC4C008C2159 /* LaunchScreen.storyboard in Resources */,
+				5399B1471BFBBC4C008C2159 /* Assets.xcassets in Resources */,
+				5399B1451BFBBC4C008C2159 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		000D36AE018565D98A44F8C4 /* Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-reactive-recipe-1/Pods-reactive-recipe-1-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		45AE32384A538ABB6D503666 /* Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-reactive-recipe-1/Pods-reactive-recipe-1-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		728C3CE4F1725DA0F6FA60AC /* Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5399B1381BFBBC4C008C2159 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5399B1421BFBBC4C008C2159 /* ViewController.swift in Sources */,
+				5399B1401BFBBC4C008C2159 /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		5399B1431BFBBC4C008C2159 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5399B1441BFBBC4C008C2159 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		5399B1481BFBBC4C008C2159 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				5399B1491BFBBC4C008C2159 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		5399B14C1BFBBC4C008C2159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		5399B14D1BFBBC4C008C2159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		5399B14F1BFBBC4C008C2159 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DD86F7FC41EFFB80D4B8612 /* Pods-reactive-recipe-1.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "reactive-recipe-1/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tailec.reactive-recipe-1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		5399B1501BFBBC4C008C2159 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = BC103FD2FFF0970073743F82 /* Pods-reactive-recipe-1.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "reactive-recipe-1/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "tailec.reactive-recipe-1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5399B1371BFBBC4C008C2159 /* Build configuration list for PBXProject "reactive-recipe-1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5399B14C1BFBBC4C008C2159 /* Debug */,
+				5399B14D1BFBBC4C008C2159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5399B14E1BFBBC4C008C2159 /* Build configuration list for PBXNativeTarget "reactive-recipe-1" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5399B14F1BFBBC4C008C2159 /* Debug */,
+				5399B1501BFBBC4C008C2159 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 5399B1341BFBBC4C008C2159 /* Project object */;
+}

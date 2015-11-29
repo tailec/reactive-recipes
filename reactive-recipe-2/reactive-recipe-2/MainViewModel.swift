@@ -15,17 +15,30 @@ struct MainViewModel {
     
     let coreDataStack: CoreDataStack
     
-    let title: Driver<String>
-    let items: Observable<[Item]>
+    var title: Observable<String>
+    var items: Observable<[Item]>
     
     init(coreDataStack: CoreDataStack) {
         self.coreDataStack = coreDataStack
-        title = Drive.just("Not much to do")
         
-        let request = NSFetchRequest(entityName: Item.entityName)
-        let fetchedItems = try! CoreDataStack.defaultStack.context.executeFetchRequest(request) as! [Item]
-        items = just(fetchedItems)
+        items = coreDataStack.context.rx_contextSaved.map {_ in
+            return MainViewModel.getItemsWithStack(coreDataStack)
+            }.startWith(MainViewModel.getItemsWithStack(coreDataStack))
 
+        title = items.map {
+            "(\($0.count))"
+        }
     }
     
+    func selectItemAtIndexPath(indexPath: NSIndexPath) {
+        
+    }
+    
+    func addViewModel() -> AddViewModel {
+        return AddViewModel(coreDataStack: coreDataStack)
+    }
+    
+    static private func getItemsWithStack(stack: CoreDataStack) -> [Item] {
+        return try! stack.context.executeFetchRequest(NSFetchRequest(entityName: Item.entityName)) as! [Item]
+    }
 }

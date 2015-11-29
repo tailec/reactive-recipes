@@ -31,7 +31,7 @@ extension CoreDataStack {
     // better solution?
     private func isFirstTimeDataExists() -> Bool {
         let request = NSFetchRequest(entityName: Item.entityName)
-        let fetchedItems = try! CoreDataStack.defaultStack.context.executeFetchRequest(request) as! [Item]
+        let fetchedItems = try! context.executeFetchRequest(request) as! [Item]
         return !fetchedItems.isEmpty
     }
 }

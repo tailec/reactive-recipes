@@ -16,12 +16,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
-        CoreDataStack.defaultStack.loadFirstTimeData()
-
+        let coreDataStack = CoreDataStack()
+        coreDataStack.loadFirstTimeData()
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         if let window = window {
-            let mainViewModel = MainViewModel(coreDataStack: CoreDataStack.defaultStack)
+            let mainViewModel = MainViewModel(coreDataStack: coreDataStack)
             let mainViewController = MainViewController(viewModel: mainViewModel)
             let navigationController = UINavigationController(rootViewController: mainViewController)
             window.rootViewController = navigationController

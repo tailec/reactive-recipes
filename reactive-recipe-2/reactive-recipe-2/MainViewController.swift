@@ -15,6 +15,7 @@ class MainViewController: UIViewController {
     let viewModel: MainViewModel
     
     let searchBar = UISearchBar()
+    let addBarButtonItem = UIBarButtonItem(barButtonSystemItem: .Add, target: nil, action: nil)
     let tableView = UITableView()
     
     let disposeBag = DisposeBag()
@@ -31,11 +32,12 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initUI()
-        bindRx()
+        bindViewModel()
     }
     
-    func bindRx() {
-        _ = viewModel.title.driveNext { [unowned self] title in
+
+    func bindViewModel() {
+        _ = viewModel.title.subscribeNext { [unowned self] title in
             self.title = title
         }
         .addDisposableTo(disposeBag)
@@ -48,6 +50,16 @@ class MainViewController: UIViewController {
             return cell as UITableViewCell
         }
         .addDisposableTo(disposeBag)
+        
+        _ = tableView.rx_itemSelected.subscribeNext { [unowned self] indexPath in
+            self.viewModel.selectItemAtIndexPath(indexPath)
+        }
+        
+        _ = addBarButtonItem.rx_tap.subscribeNext { [unowned self] _ in
+            let addViewController = AddViewController(viewModel: self.viewModel.addViewModel())
+            let navigationController = UINavigationController(rootViewController: addViewController)
+            self.presentViewController(navigationController, animated: true, completion: nil)
+        }
     }
     
     func initUI() {
@@ -68,6 +80,8 @@ class MainViewController: UIViewController {
         
         automaticallyAdjustsScrollViewInsets = false
         tableView.registerClass(UITableViewCell.self, forCellReuseIdentifier: "cellIdentifier")
-
+        
+        navigationItem.rightBarButtonItem = addBarButtonItem
     }
 }
+

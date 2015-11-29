@@ -2,7 +2,7 @@
 //  Item+CoreDataProperties.swift
 //  
 //
-//  Created by krawiecp on 28/11/2015.
+//  Created by krawiecp on 29/11/2015.
 //
 //
 //  Choose "Create NSManagedObject Subclass…" from the Core Data editor menu
@@ -16,5 +16,6 @@ extension Item {
 
     @NSManaged var content: String?
     @NSManaged var position: NSNumber?
+    @NSManaged var done: NSNumber?
 
 }

@@ -12,7 +12,6 @@ import CoreData
 class CoreDataStack {
     let modelName = "ToDoList" // moze utworzyc jakas klase, ktora przechowuje wszystkie stale?
     
-    static let defaultStack = CoreDataStack()
     
     lazy var context: NSManagedObjectContext = {
         var managedObjectContext = NSManagedObjectContext(concurrencyType: .MainQueueConcurrencyType)

@@ -24,11 +24,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let mainViewModel = MainViewModel(coreDataStack: coreDataStack)
             let mainViewController = MainViewController(viewModel: mainViewModel)
             let navigationController = UINavigationController(rootViewController: mainViewController)
+            
             window.rootViewController = navigationController
             window.makeKeyAndVisible()
-        }
-        
-        
+        }        
         return true
     }
 }

@@ -11,7 +11,7 @@ import CoreData
 class AddViewController: UIViewController {
 
     var viewModel: AddViewModel
-    
+        
     let textView = UITextView()
     let cancelBarButtonItem = UIBarButtonItem()
     let doneBarButtonItem = UIBarButtonItem()

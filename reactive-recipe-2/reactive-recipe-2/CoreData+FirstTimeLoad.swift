@@ -11,27 +11,22 @@ import CoreData
 
 extension CoreDataStack {
     func loadFirstTimeData() {
-        guard isFirstTimeDataExists() == false else {
+        let userDefaults = NSUserDefaults.standardUserDefaults()
+        guard (userDefaults.boolForKey("firstTimeDataLoaded") == false) else {
             return
         }
+        userDefaults.setBool(true, forKey: "firstTimeDataLoaded")
         
         for (index, itemContent) in ["Walk out dog", "Wash car"].enumerate() {
             let item = NSEntityDescription.insertNewObjectForEntityForName("Item", inManagedObjectContext: context) as! Item
             item.content = itemContent
             item.position = index
+            item.done = false
         }
         do {
             try context.save()
         } catch {
             print("Failed to save to CoreData")
         }
-        
-    }
-    
-    // better solution?
-    private func isFirstTimeDataExists() -> Bool {
-        let request = NSFetchRequest(entityName: Item.entityName)
-        let fetchedItems = try! context.executeFetchRequest(request) as! [Item]
-        return !fetchedItems.isEmpty
     }
 }

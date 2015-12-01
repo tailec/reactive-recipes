@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         
         loginButton.rx_tap
             .flatMap { _ -> Observable<String> in
-                return create { [unowned self] observer in
+                return create { observer in
                     PFUser.logInWithUsernameInBackground(self.usernameTextField.text!, password: self.passwordTextField.text!) {
                         user, error in
                         observer.onNext(user?.username ?? "Try again!")

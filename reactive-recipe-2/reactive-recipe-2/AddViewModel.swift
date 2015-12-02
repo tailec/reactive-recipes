@@ -11,23 +11,23 @@ import CoreData
 import RxSwift
 
 struct AddViewModel {
-    let coreDataStack: CoreDataStack
     
+    // input
+    var contentTextObservable = BehaviorSubject<String>(value: "")
+
+    // output
     let cancelBarButtonItemTitle = "Cancel"
     let doneBarButtonItemTitle = "Done"
-    
-    var contentText: Observable<String>?
     var isContentValid: Observable<Bool> {
-        get {
-            if let contentText = contentText {
-                return contentText
-                    .map { $0.characters.count > 0 }
-                
-            } else {
-                return just(false)
+        return self.contentTextObservable
+            .map {
+                $0.characters.count == 0 ? false : true
             }
-        }
     }
+    
+    // private
+    private let coreDataStack: CoreDataStack
+    private let disposeBag = DisposeBag()
     
     init(coreDataStack: CoreDataStack) {
         self.coreDataStack = coreDataStack
@@ -35,9 +35,11 @@ struct AddViewModel {
     
     func addItem() {
         let item = NSEntityDescription.insertNewObjectForEntityForName(Item.entityName, inManagedObjectContext: coreDataStack.context) as! Item
-        _ = contentText?.subscribeNext {
-            item.content = $0
-        }
+        _ = contentTextObservable.subscribeNext {
+                item.content = $0
+            }
+            .addDisposableTo(disposeBag)
+        
         item.done = false
         
         do {

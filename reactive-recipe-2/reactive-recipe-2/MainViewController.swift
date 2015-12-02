@@ -44,20 +44,11 @@ class MainViewController: UIViewController {
         super.viewWillDisappear(animated)
         viewModel.active = false
     }
-    
 
     func bindViewModel() {
+        _ = searchBar.rx_text.bindTo(viewModel.searchTextObservable)
         
-        viewModel.searchTextObservable = searchBar.rx_text.asObservable()
-       /*
-        _ = viewModel.title.subscribeNext { [unowned self] title in
-            print("xx")
-            self.title = title
-        }
-        .addDisposableTo(disposeBag)
-        */
-        
-        _ = viewModel.contentChangesObservable.debug().bindTo(tableView.rx_itemsWithCellFactory) {
+        _ = viewModel.contentChangesObservable.bindTo(tableView.rx_itemsWithCellFactory) {
             (tv: UITableView, index, item: Item) in
             let indexPath = NSIndexPath(forItem: index, inSection: 0)
             let cell = tv.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath) 
@@ -66,15 +57,6 @@ class MainViewController: UIViewController {
             return cell as UITableViewCell
         }
         .addDisposableTo(disposeBag)
-
-        
-        _ = tableView.rx_itemSelected.subscribeNext { [unowned self] indexPath in
-            self.viewModel.selectItemAtIndexPath(indexPath)
-        }
-        
-        _ = tableView.rx_itemDeleted.subscribeNext { [unowned self] indexPath in
-            self.viewModel.removeItemAtIndexPath(indexPath)
-        }
         
         _ = addBarButtonItem.rx_tap.subscribeNext { [unowned self] _ in
             let addViewController = AddViewController(viewModel: self.viewModel.addViewModel())

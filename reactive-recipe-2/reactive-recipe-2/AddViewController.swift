@@ -35,7 +35,7 @@ class AddViewController: UIViewController {
         cancelBarButtonItem.title = viewModel.cancelBarButtonItemTitle
         doneBarButtonItem.title = viewModel.doneBarButtonItemTitle
         
-        self.viewModel.contentText = textView.rx_text.asObservable()
+        _ = textView.rx_text.bindTo(viewModel.contentTextObservable)
         
         _ = self.viewModel.isContentValid.bindTo(doneBarButtonItem.rx_enabled)
         

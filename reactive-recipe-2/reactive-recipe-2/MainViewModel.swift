@@ -33,6 +33,7 @@ class MainViewModel: RxViewModel {
                 MainViewModel.getItemsWithStack(self.coreDataStack)
             }
             .bindTo(contentChangesObservable)
+            .addDisposableTo(disposeBag)
         
         
         _ = self.searchTextObservable
@@ -45,6 +46,7 @@ class MainViewModel: RxViewModel {
                 return try! self.coreDataStack.context.executeFetchRequest(fetchRequest) as! [Item]
             }
             .bindTo(contentChangesObservable)
+            .addDisposableTo(disposeBag)
         
         _ = self.searchTextObservable
             .filter {
@@ -54,6 +56,7 @@ class MainViewModel: RxViewModel {
                 MainViewModel.getItemsWithStack(self.coreDataStack)
             }
             .bindTo(contentChangesObservable)
+            .addDisposableTo(disposeBag)
         
     }
     

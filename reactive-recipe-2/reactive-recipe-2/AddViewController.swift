@@ -7,7 +7,9 @@
 //
 
 import UIKit
-import CoreData
+import RxSwift
+import RxCocoa
+
 class AddViewController: UIViewController {
 
     var viewModel: AddViewModel
@@ -15,6 +17,8 @@ class AddViewController: UIViewController {
     let textView = UITextView()
     let cancelBarButtonItem = UIBarButtonItem()
     let doneBarButtonItem = UIBarButtonItem()
+    
+    private let disposeBag = DisposeBag()
     
     init(viewModel: AddViewModel) {
         self.viewModel = viewModel
@@ -37,16 +41,18 @@ class AddViewController: UIViewController {
         
         _ = textView.rx_text.bindTo(viewModel.contentTextObservable)
         
-        _ = self.viewModel.isContentValid.bindTo(doneBarButtonItem.rx_enabled)
+        _ = self.viewModel.contentValid.bindTo(doneBarButtonItem.rx_enabled)
         
         _ = doneBarButtonItem.rx_tap.subscribeNext { [unowned self] _ in
             self.viewModel.addItem()
             self.dismissViewControllerAnimated(true, completion: nil)
         }
+        .addDisposableTo(disposeBag)
         
         _ = cancelBarButtonItem.rx_tap.subscribeNext { [unowned self] _ in
             self.dismissViewControllerAnimated(true, completion: nil)
         }
+        .addDisposableTo(disposeBag)
     }
     
     func initUI() {

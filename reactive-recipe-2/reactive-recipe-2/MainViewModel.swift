@@ -18,8 +18,8 @@ class MainViewModel: RxViewModel {
     var searchTextObservable = PublishSubject<String>()
     
     // Output
-    var contentChangesObservable = PublishSubject<[Item]>()
-    var titleObservable = PublishSubject<String>()
+    var contentChangesObservable: Observable<[Item]>
+    var titleObservable: Observable<String>
     
     // Private
     private var coreDataStack: CoreDataStack
@@ -27,37 +27,31 @@ class MainViewModel: RxViewModel {
     
     init(coreDataStack: CoreDataStack) {
         self.coreDataStack = coreDataStack
+        contentChangesObservable = never()
+        titleObservable = never()
         super.init()
         
-        _ = didBecomeActive.map { _ in
-                MainViewModel.getItemsWithStack(self.coreDataStack)
-            }
-            .bindTo(contentChangesObservable)
-            .addDisposableTo(disposeBag)
-        
-        
-        _ = self.searchTextObservable
-            .filter {
-                $0.characters.count > 0
-            }
+        contentChangesObservable = sequenceOf(didBecomeActive.map { _ in "" }, searchTextObservable)
+            .merge()
             .map { text in
-                let fetchRequest = NSFetchRequest(entityName: Item.entityName)
-                fetchRequest.predicate = NSPredicate(format: "content CONTAINS[cd] %@", text)
-                return try! self.coreDataStack.context.executeFetchRequest(fetchRequest) as! [Item]
+                if (text.characters.count == 0) {
+                    return MainViewModel.getItemsWithStack(coreDataStack)
+                } else {
+                    let fetchRequest = NSFetchRequest(entityName: Item.entityName)
+                    fetchRequest.predicate = NSPredicate(format: "content CONTAINS[cd] %@", text)
+                    return try! self.coreDataStack.context.executeFetchRequest(fetchRequest) as! [Item]
+                }
             }
-            .bindTo(contentChangesObservable)
-            .addDisposableTo(disposeBag)
+            .shareReplay(1)
         
-        _ = self.searchTextObservable
-            .filter {
-                $0.characters.count == 0
+        titleObservable = contentChangesObservable
+            .map {
+                $0.count
             }
-            .map { text in
-                MainViewModel.getItemsWithStack(self.coreDataStack)
+            .map {
+                $0 == 0 ? "Nothing to do" : "\($0)"
             }
-            .bindTo(contentChangesObservable)
-            .addDisposableTo(disposeBag)
-        
+            .shareReplay(1)
     }
     
     func addViewModel() -> AddViewModel {

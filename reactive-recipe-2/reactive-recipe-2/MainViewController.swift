@@ -50,19 +50,26 @@ class MainViewController: UIViewController {
         
         _ = viewModel.contentChangesObservable.bindTo(tableView.rx_itemsWithCellFactory) {
             (tv: UITableView, index, item: Item) in
-            let indexPath = NSIndexPath(forItem: index, inSection: 0)
-            let cell = tv.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath) 
-            cell.textLabel!.text = item.content
-            cell.backgroundColor = item.done as! Bool ? UIColor.lightGrayColor() : UIColor.whiteColor()
-            return cell as UITableViewCell
-        }
-        .addDisposableTo(disposeBag)
+                let indexPath = NSIndexPath(forItem: index, inSection: 0)
+                let cell = tv.dequeueReusableCellWithIdentifier("cellIdentifier", forIndexPath: indexPath) 
+                cell.textLabel!.text = item.content
+                cell.backgroundColor = item.done as! Bool ? UIColor.lightGrayColor() : UIColor.whiteColor()
+                return cell as UITableViewCell
+            }
+            .addDisposableTo(disposeBag)
+        
+        _ = viewModel.titleObservable
+            .subscribeNext { [unowned self] title in
+                self.title = title
+            }
+            .addDisposableTo(disposeBag)
         
         _ = addBarButtonItem.rx_tap.subscribeNext { [unowned self] _ in
-            let addViewController = AddViewController(viewModel: self.viewModel.addViewModel())
-            let navigationController = UINavigationController(rootViewController: addViewController)
-            self.presentViewController(navigationController, animated: true, completion: nil)
-        }
+                let addViewController = AddViewController(viewModel: self.viewModel.addViewModel())
+                let navigationController = UINavigationController(rootViewController: addViewController)
+                self.presentViewController(navigationController, animated: true, completion: nil)
+            }
+            .addDisposableTo(disposeBag)
     }
     
     func initUI() {

@@ -9,21 +9,17 @@
 import Foundation
 import CoreData
 import RxSwift
+import RxViewModel
 
-struct AddViewModel {
+class AddViewModel: RxViewModel {
     
     // input
-    var contentTextObservable = BehaviorSubject<String>(value: "")
+    var contentTextObservable = Variable("")
 
     // output
     let cancelBarButtonItemTitle = "Cancel"
     let doneBarButtonItemTitle = "Done"
-    var isContentValid: Observable<Bool> {
-        return self.contentTextObservable
-            .map {
-                $0.characters.count == 0 ? false : true
-            }
-    }
+    var contentValid: Observable<Bool>
     
     // private
     private let coreDataStack: CoreDataStack
@@ -31,15 +27,19 @@ struct AddViewModel {
     
     init(coreDataStack: CoreDataStack) {
         self.coreDataStack = coreDataStack
+        self.contentValid = never()
+        super.init()
+        
+        contentValid = contentTextObservable
+            .flatMap { text in
+                just(text.characters.count != 0 ? true : false)
+            }
+            .shareReplay(1)
     }
     
     func addItem() {
         let item = NSEntityDescription.insertNewObjectForEntityForName(Item.entityName, inManagedObjectContext: coreDataStack.context) as! Item
-        _ = contentTextObservable.subscribeNext {
-                item.content = $0
-            }
-            .addDisposableTo(disposeBag)
-        
+        item.content = contentTextObservable.value
         item.done = false
         
         do {

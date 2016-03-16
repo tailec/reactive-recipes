@@ -58,7 +58,7 @@ class ViewController: UIViewController {
             }
             .addDisposableTo(disposeBag)
         
-        combineLatest(validUsernameObservable, validPasswordObservable) {
+        Observable.combineLatest(validUsernameObservable, validPasswordObservable) {
                 $0 && $1
             }
             .bindTo(loginButton.rx_enabled)
@@ -67,7 +67,7 @@ class ViewController: UIViewController {
         
         loginButton.rx_tap
             .flatMap { _ -> Observable<String> in
-                return create { observer in
+                return Observable.create { observer in
                     PFUser.logInWithUsernameInBackground(self.usernameTextField.text!, password: self.passwordTextField.text!) {
                         user, error in
                         observer.onNext(user?.username ?? "Try again!")

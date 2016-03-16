@@ -27,12 +27,12 @@ class AddViewModel: RxViewModel {
     
     init(coreDataStack: CoreDataStack) {
         self.coreDataStack = coreDataStack
-        self.contentValid = never()
+        self.contentValid = Observable.never()
         super.init()
         
-        contentValid = contentTextObservable
+        contentValid = contentTextObservable.asObservable()
             .flatMap { text in
-                just(text.characters.count != 0 ? true : false)
+                Observable.just(text.characters.count != 0 ? true : false)
             }
             .shareReplay(1)
     }

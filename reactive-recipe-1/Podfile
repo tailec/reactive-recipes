@@ -3,6 +3,6 @@ use_frameworks!
 
 target 'reactive-recipe-1' do
   pod 'Parse'
-  pod 'RxSwift', '2.0.0-beta.3'
-  pod 'RxCocoa', '2.0.0-beta.3'
+   pod 'RxSwift', '~> 2.0'
+   pod 'RxCocoa', '~> 2.0'
 end

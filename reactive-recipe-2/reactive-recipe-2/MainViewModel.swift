@@ -27,11 +27,11 @@ class MainViewModel: RxViewModel {
     
     init(coreDataStack: CoreDataStack) {
         self.coreDataStack = coreDataStack
-        contentChangesObservable = never()
-        titleObservable = never()
+        contentChangesObservable = Observable.never()
+        titleObservable = Observable.never()
         super.init()
         
-        contentChangesObservable = sequenceOf(didBecomeActive.map { _ in "" }, searchTextObservable)
+        contentChangesObservable = Observable.of(didBecomeActive.map { _ in "" }, searchTextObservable)
             .merge()
             .map { text in
                 if (text.characters.count == 0) {

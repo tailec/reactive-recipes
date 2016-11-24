@@ -44,8 +44,8 @@ class ViewController: UIViewController {
             .map {
                 $0 ? UIColor.greenColor() : UIColor.whiteColor()
             }
-            .subscribeNext {
-                self.usernameTextField.backgroundColor = $0
+            .subscribeNext { [unowned self] color in
+                self.usernameTextField.backgroundColor = color
             }
             .addDisposableTo(disposeBag)
         
@@ -53,8 +53,8 @@ class ViewController: UIViewController {
             .map {
                 $0 ? UIColor.greenColor() : UIColor.whiteColor()
             }
-            .subscribeNext {
-                self.passwordTextField.backgroundColor = $0
+            .subscribeNext { [unowned self] color in
+                self.passwordTextField.backgroundColor = color
             }
             .addDisposableTo(disposeBag)
         
@@ -76,8 +76,8 @@ class ViewController: UIViewController {
                     return NopDisposable.instance
                 }
             }
-            .subscribeNext {
-                let alert = UIAlertController(title: $0, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
+            .subscribeNext { [unowned self] title in
+                let alert = UIAlertController(title: title, message: nil, preferredStyle: UIAlertControllerStyle.Alert)
                 alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
                 self.presentViewController(alert, animated: true, completion: nil)
             }
